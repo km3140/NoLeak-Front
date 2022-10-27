@@ -66,17 +66,6 @@ const Transaction = () => {
     },
   ];
 
-  // (자세히보기, 메인으로) 토글기능
-  const [location, setLocation] = useState('');
-  const getLocation = () => {
-    setLocation(window.location.pathname);
-  };
-  useEffect(() => {
-    getLocation();
-    window.scrollTo(0, 0);
-    console.log(process.env.PUBLIC_URL);
-  });
-
   //모달창 토글
   const [modalShow, setModalShow] = useState(false);
 
@@ -95,18 +84,24 @@ const Transaction = () => {
             거래 추가
           </Button>
           <AddTransModal show={modalShow} onHide={() => setModalShow(false)} />
-          {location === process.env.PUBLIC_URL ? (
-            <Link to="/tran" style={{ textDecoration: 'none' }}>
-              <div className="main_move_btn">
-                자세히보기 <FaAngleDoubleRight />
-              </div>
-            </Link>
+          {window.location.pathname === process.env.PUBLIC_URL ? (
+            <>
+              <Link to="/tran" style={{ textDecoration: 'none' }}>
+                <div className="main_move_btn">
+                  자세히보기 <FaAngleDoubleRight />
+                </div>
+              </Link>
+              {window.scrollTo(0, 0)}
+            </>
           ) : (
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <div className="main_move_btn">
-                메인으로 <FaAngleDoubleRight />
-              </div>
-            </Link>
+            <>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <div className="main_move_btn">
+                  메인으로 <FaAngleDoubleRight />
+                </div>
+              </Link>
+              {window.scrollTo(0, 0)}
+            </>
           )}
         </div>
         {/* dummy data */}
