@@ -69,6 +69,9 @@ const Transaction = () => {
   //모달창 토글
   const [modalShow, setModalShow] = useState(false);
 
+  console.log('process.env.PUBLIC_URL', process.env.PUBLIC_URL);
+  console.log('window.location.pathname', window.location.pathname);
+
   return (
     <div className="transaction_container" style={{ marginBottom: '25px' }}>
       <div className="transaction_area_lable">승인대기 거래</div>
@@ -84,7 +87,7 @@ const Transaction = () => {
             거래 추가
           </Button>
           <AddTransModal show={modalShow} onHide={() => setModalShow(false)} />
-          {window.location.pathname === process.env.PUBLIC_URL ? (
+          {window.location.pathname === '/KDT_for_Deploy' ? (
             <>
               <Link to="/tran" style={{ textDecoration: 'none' }}>
                 <div className="main_move_btn">
