@@ -87,7 +87,7 @@ const Transaction = () => {
             거래 추가
           </Button>
           <AddTransModal show={modalShow} onHide={() => setModalShow(false)} />
-          {window.location.pathname === '/KDT_for_Deploy' ? (
+          {window.location.pathname === '/KDT_for_Deploy/' ? (
             <>
               <Link to="/tran" style={{ textDecoration: 'none' }}>
                 <div className="main_move_btn">
